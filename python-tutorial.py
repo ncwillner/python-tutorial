@@ -60,7 +60,7 @@ total = 0
 for price in prices:
     total += price
 print (f"Total: {total}")
-0
+
 #FINDING THE BIGGEST NUMBER IN A LIST
 numbers = [5,41,32,56,7,67,7,534,123]
 max = numbers[0]
@@ -143,3 +143,61 @@ def greet_user(first_name, last_name):
 print('start')
 greet_user( 'john', last_name= 'snow')
 print('finish')
+
+#creating a reusable function
+def emoji_converter(message):
+    words = message.split(" ")
+    emojis = {
+        ":)": "😊",
+        ":(": "😞"
+    }
+    output = ""
+    for word in words:
+        output += emojis.get(word, word) + " "
+    return output
+
+
+message = input(">")
+print(emoji_converter(message))
+
+#exceptions
+try:
+    age = int(input('age: '))
+    income = 20000
+    risk = income / age
+    print(age)
+except ValueError:
+    print('invalid value')
+except ZeroDivisionError:
+    print("age cannot be 0.")
+
+# new types using classes
+class Point:                  #define new types
+    def move(self):           #methods that we define
+        print('move')
+    def draw(self):
+        print('draw')
+
+point1 = Point()
+point1.x = 10                #attributes
+point1.y = 20
+print(point1.x)
+point1.draw()
+
+point2 = Point()
+point2.x = 1
+print(point2.x)
+
+#constructer
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def move(self):
+        print('move')
+    def draw(self):
+        print('draw')
+
+
+point = Point(10,20)
+print(point.x)
